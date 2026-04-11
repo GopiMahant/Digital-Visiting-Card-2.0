@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardForge — Your Digital Identity, Crafted</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Syne:wght@400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@300;400;500;600;700&family=Bebas+Neue&family=DM+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=Share+Tech+Mono&family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&family=Kaisei+Decol:wght@400;500;700&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Landing Page -->
+        <section id="landing" class="screen">
+            <header>
+                <h1>✦ CardForge</h1>
+                <nav>
+                    <button id="signInBtn">Sign In</button>
+                    <button id="getStartedBtn">Get Started</button>
+                </nav>
+            </header>
+            <main>
+                <h2>Your Digital Identity, Crafted to Perfection.</h2>
+                <p>Create a stunning digital business card in under 2 minutes.</p>
+                <button id="createCardBtn" class="cta">✦ Create My Card — Free</button>
+                <div class="template-strip">
+                    <h3>10 Premium Templates</h3>
+                    <!-- Placeholder for template previews -->
+                </div>
+            </main>
+        </section>
+
+        <!-- Template Gallery -->
+        <section id="gallery" class="screen hidden">
+            <header>
+                <button id="backToLanding">← Back</button>
+                <h2>Choose Your Template</h2>
+                <span>10 templates</span>
+            </header>
+            <div class="filters">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="luxury">Luxury</button>
+                <button class="filter" data-filter="minimal">Minimal</button>
+                <button class="filter" data-filter="bold">Bold</button>
+                <button class="filter" data-filter="soft">Soft</button>
+            </div>
+            <div id="templateGrid" class="template-grid">
+                <!-- Templates will be loaded here -->
+            </div>
+            <button id="selectTemplateBtn" class="cta hidden">Use This Template →</button>
+        </section>
+
+        <!-- Form + Preview -->
+        <section id="formPreview" class="screen hidden">
+            <header>
+                <button id="backToGallery">← Templates</button>
+                <h2>Step 2: Your Details</h2>
+            </header>
+            <div class="content">
+                <div class="form-section">
+                    <h3>Your Details</h3>
+                    <form id="cardForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Alexandra Chen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title *</label>
+                            <input type="text" id="jobTitle" name="jobTitle" placeholder="Creative Director" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company / Brand Name</label>
+                            <input type="text" id="company" name="company" placeholder="Forge Studios">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="alex@forgestudios.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Website URL</label>
+                            <input type="url" id="website" name="website" placeholder="www.forgestudios.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Street Address</label>
+                            <input type="text" id="address" name="address" placeholder="12 Park Street, Mumbai">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin">LinkedIn Profile</label>
+                            <input type="url" id="linkedin" name="linkedin" placeholder="linkedin.com/in/alexchen">
+                        </div>
+                        <div class="form-group">
+                            <label for="instagram">Instagram Handle</label>
+                            <input type="text" id="instagram" name="instagram" placeholder="@alexchen">
+                        </div>
+                        <div class="form-group">
+                            <label for="tagline">Tagline / Slogan</label>
+                            <input type="text" id="tagline" name="tagline" placeholder="Design that speaks volumes">
+                        </div>
+                        <div class="form-group">
+                            <label for="logo">Logo Upload</label>
+                            <input type="file" id="logo" name="logo" accept="image/png,image/jpeg,image/svg+xml">
+                            <p>or use template default ✓</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="preview-section">
+                    <h3>Live Preview</h3>
+                    <div id="cardPreview" class="card-preview">
+                        <!-- Card will be rendered here -->
+                    </div>
+                    <div class="preview-controls">
+                        <button id="flipCardBtn">Front</button>
+                        <button id="downloadPngBtn">↓ Download PNG</button>
+                        <button id="downloadPdfBtn">↓ Download PDF</button>
+                        <button id="copyShareLinkBtn">⎘ Copy Share Link</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="app.js"></script>
+    <script src="components/gallery.js"></script>
+    <script src="components/form.js"></script>
+    <script src="components/preview.js"></script>
+    <script src="components/exporter.js"></script>
+    <!-- Template scripts will be loaded dynamically -->
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Digital Visiting Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Register Your Digital Visiting Card</h1>
+        <form id="cardForm">
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required><br>
+
+            <label for="businessName">Business Name:</label>
+            <input type="text" id="businessName" name="businessName" required><br>
+
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" required><br>
+
+            <label for="personalNumber">Personal Number:</label>
+            <input type="tel" id="personalNumber" name="personalNumber" required><br>
+
+            <label for="whatsappNumber">WhatsApp Number:</label>
+            <input type="tel" id="whatsappNumber" name="whatsappNumber" required><br>
+
+            <label for="website">Website Link:</label>
+            <input type="url" id="website" name="website" required><br>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br>
+
+            <label for="services">Services:</label>
+            <input type="text" id="services" name="services" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="facebook">Facebook Profile Link:</label>
+            <input type="url" id="facebook" name="facebook"><br>
+
+            <label for="instagram">Instagram Profile Link:</label>
+            <input type="url" id="instagram" name="instagram"><br>
+
+            <label for="linkedin">LinkedIn Profile Link:</label>
+            <input type="url" id="linkedin" name="linkedin"><br>
+
+            <button type="submit">Create Card</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
