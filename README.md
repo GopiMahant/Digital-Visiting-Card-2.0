@@ -31,7 +31,7 @@ cardforge/
 
 ## Technologies
 
-- HTML5, CSS3, JavaScript
+- HTML5, CSS3, JavaScripts
 - html2canvas for PNG export
 - jsPDF for PDF export
 - Google Fonts for typography
@@ -43,3 +43,7 @@ cardforge/
 - PNG export
 
 Ready for Phase 2 enhancements!
+
+## UX Enhancement Guide
+
+For a complete roadmap of UX improvements, implementation examples, and code snippets, see the UX Enhancement Guide: [UX-Enhancement-Guide.md](UX-Enhancement-Guide.md)
