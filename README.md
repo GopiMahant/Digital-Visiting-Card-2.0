@@ -7,7 +7,7 @@ A premium digital business card creator with 10 unique templates, live preview, 
 - **10 Premium Templates**: From Obsidian Executive to Carbon Brutalist
 - **Live Preview**: Real-time updates as you type
 - **Logo Upload**: Custom logos with template fallbacks
-- **Export Options**: PNG and PDF downloads
+- **Export Options**: PNG and PDF downloads.
 - **Responsive Design**: Works on desktop and mobile.
 
 ## Getting Started
